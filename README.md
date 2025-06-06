@@ -2,8 +2,12 @@
 
 ### Overview
 
-- Description
+An image sharing website.
+
+- HTML
+- CSS
 - Grid/Flexbox layout
+- Responsive Design
 
 **Intro**
 
