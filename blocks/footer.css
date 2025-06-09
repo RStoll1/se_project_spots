@@ -4,15 +4,10 @@
   background-color: #fcf5e5;
 }
 
-.footer__content {
-  margin: 60px 0;
-  line-height: 1;
-  opacity: 70%;
-}
-
 .footer__author {
-  margin: 0;
+  margin: 60px 0;
   font-size: 16px;
   font-weight: 400;
   opacity: 70%;
+  line-height: 1;
 }
