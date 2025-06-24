@@ -2,7 +2,7 @@ const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileSubmitBtn = editProfileModal.querySelector(".modal__submit-btn");
-const editprofileForm = document.querySelector(".modal__form");
+const editProfileForm = document.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector("#profile-name-input");
 const editProfileDescriptionInput = editProfileModal.querySelector("#profile-description-input");
 
@@ -21,37 +21,56 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 editProfileBtn.addEventListener("click", function () {
     editProfileNameInput.value = profileNameEl.textContent;
     editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-    editProfileModal.classList.add("modal_is-opened");
+    openModal(editProfileModal);
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
-    editProfileModal.classList.remove("modal_is-opened");
+    closeModal(editProfileModal);
 });
 
-editprofileForm.addEventListener("submit", handleEditProfileSubmit);
+editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 newPostBtn.addEventListener("click", function () {
-    newPostModal.classList.add("modal_is-opened");
+    openModal(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", function () {
-    newPostModal.classList.remove("modal_is-opened");
+    closeModal(newPostModal);
 });
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
+function openModal(modal) {
+    modal.classList.add("modal_is-opened");
+};
+
+function closeModal(modal) {
+    modal.classList.remove("modal_is-opened");
+};
+
 function handleEditProfileSubmit(evt) {
+    if (!editProfileNameInput.value.trim() || !editProfileDescriptionInput.value.trim()) {
+        alert("Please fill in all fields");
+        evt.preventDefault();
+        return;
+    };
     evt.preventDefault();
     profileNameEl.textContent = editProfileNameInput.value;
     profileDescriptionEl.textContent = editProfileDescriptionInput.value;
     editProfileModal.classList.remove("modal_is-opened");
 
-}
+};
 
 function handleNewPostSubmit(evt) {
+    if (!newPostLinkInput.value.trim() || !newPostDescriptionInput.value.trim()) {
+        alert("Please fill in all fields");
+        evt.preventDefault();
+        return;
+    }
     evt.preventDefault();
     console.log(newPostLinkInput.value);
     console.log(newPostDescriptionInput.value);
     newPostModal.classList.remove("modal_is-opened");
+    newPostForm.reset();
 
-}
+};

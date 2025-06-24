@@ -1,6 +1,6 @@
 # Project 3: Spots
 
-### Overview
+## Overview
 
 An image sharing website.
 
