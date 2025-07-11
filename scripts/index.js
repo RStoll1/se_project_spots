@@ -132,7 +132,7 @@ function handleEditProfileSubmit(evt) {
     evt.preventDefault();
     profileNameEl.textContent = editProfileNameInput.value;
     profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-    closeModal();
+    closeModal(editProfileModal);
 
 };
 
@@ -149,7 +149,7 @@ function handleNewPostSubmit(evt) {
     };
     const postCardEl = getCardElement(inputValues);
     cardsList.prepend(postCardEl);
-    closeModal();
+    closeModal(newPostModal);
     newPostForm.reset();
 
 };
