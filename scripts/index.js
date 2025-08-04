@@ -79,15 +79,15 @@ function getCardElement(data) {
         cardElement.remove();
     });
 
-    cardImageEl.addEventListener("click", () => {
-        previewImageEl.src = data.link;
-        previewCaptionEl.alt = data.name;
-        previewCaptionEl.textContent = data.name;
-        openModal(previewModal);
-    });
-
     previewModalCloseBtn.addEventListener("click", () => {
         closeModal(previewModal);
+    });
+
+    cardImageEl.addEventListener("click", () => {
+        previewImageEl.src = data.link;
+        previewImageEl.alt = data.name;
+        previewCaptionEl.textContent = data.name;
+        openModal(previewModal);
     });
 
     return cardElement;
