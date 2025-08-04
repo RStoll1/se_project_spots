@@ -52,7 +52,7 @@
 
 .modal__close-btn_type_preview {
   top: 0;
-  right: -52.5px;
+  right: -25px;
 }
 
 .modal__title {
@@ -170,7 +170,7 @@
   }
 
   .modal__close-btn_type_preview {
-    top: -48px;
+    top: -25px;
     right: 0;
   }
 

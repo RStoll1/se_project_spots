@@ -1,3 +1,5 @@
+// I don't know what you mean by 4 spaces. Prettier keeps correcting my format when I save this way, on my screen it's showing 2 indent spaces and not 4 as the correction says?
+
 const initialCards = [
     {
         name: "Golden Gate Bridge",
@@ -79,10 +81,6 @@ function getCardElement(data) {
         cardElement.remove();
     });
 
-    previewModalCloseBtn.addEventListener("click", () => {
-        closeModal(previewModal);
-    });
-
     cardImageEl.addEventListener("click", () => {
         previewImageEl.src = data.link;
         previewImageEl.alt = data.name;
@@ -92,6 +90,10 @@ function getCardElement(data) {
 
     return cardElement;
 };
+
+previewModalCloseBtn.addEventListener("click", () => {
+    closeModal(previewModal);
+});
 
 editProfileBtn.addEventListener("click", function () {
     editProfileNameInput.value = profileNameEl.textContent;
