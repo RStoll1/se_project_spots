@@ -52,7 +52,7 @@
       <footer class="footer">
         <p class="footer__author">2025 &copy; Spots</p>
       </footer>
-      <div class="modal" id="edit-profile-modal">
+      <div class="modal" id="edit-profile-modal" novalidate>
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
             <img src="./images/x-icon.svg" alt="Close Button" />
@@ -70,7 +70,7 @@
                 minlength="2"
                 maxlength="40"
               />
-              <span class="modal__error"></span>
+              <span id="profile-name-input-error" class="modal__error"></span>
             </label>
             <label for="profile-description-input" class="modal__label">
               Description
@@ -83,13 +83,16 @@
                 minlength="2"
                 maxlength="200"
               />
-              <span class="modal__error"></span>
+              <span
+                id="profile-description-input-error"
+                class="modal__error"
+              ></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
-      <div class="modal" id="new-post-modal">
+      <div class="modal" id="new-post-modal" novalidate>
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
             <img src="./images/x-icon.svg" alt="Close button" />
@@ -105,7 +108,7 @@
                 type="url"
                 class="modal__input"
               />
-              <span class="modal__error"></span>
+              <span id="card-image-input-error" class="modal__error"></span>
             </label>
             <label for="card-description-input" class="modal__label">
               Description
@@ -118,7 +121,10 @@
                 minlength="2"
                 maxlength="200"
               />
-              <span class="modal__error"></span>
+              <span
+                id="card-description-input-error"
+                class="modal__error"
+              ></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -142,5 +148,6 @@
       </div>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
