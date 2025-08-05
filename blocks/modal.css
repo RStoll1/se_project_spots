@@ -59,6 +59,7 @@
   margin: 0 0 32px;
   font-weight: 500;
   font-size: 32px;
+  line-height: 1.1;
 }
 
 .modal__form {
@@ -84,6 +85,9 @@
   border-style: outset;
   border-color: rgba(21, 21, 21, 0.4);
   box-sizing: border-box;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
 }
 
 .modal__input_type_error {
@@ -110,6 +114,7 @@
   border-radius: 8px;
   width: 156px;
   opacity: 100%;
+  border: none;
 }
 
 .modal__submit-btn-is-disabled {
@@ -118,11 +123,12 @@
 
 .modal__input:hover {
   cursor: pointer;
+  border: 1px solid #212121;
 }
 
 .modal__close-btn:hover {
   cursor: pointer;
-  opacity: 70%;
+  opacity: 40%;
 }
 
 .modal__submit-btn:hover {
