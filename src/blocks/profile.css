@@ -12,6 +12,11 @@
   object-fit: cover;
 }
 
+.profile__avatar-btn::after {
+  content: "Edit Avatar";
+  display: visible;
+}
+
 .profile__column {
   display: flex;
   flex-direction: column;

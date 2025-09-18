@@ -1,5 +1,6 @@
 import { enableValidation, settings, resetValidation, disableButton } from "../scripts/validation.js";
 import "../pages/index.css";
+import Api from "../utils/Api.js";
 
 
 const initialCards = [
@@ -32,6 +33,31 @@ const initialCards = [
         link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
     },
 ];
+
+const api = new Api({
+    baseUrl: "https://around-api.en.tripleten-services.com/v1",
+    headers: {
+        authorization: "b36b01ce-d9dd-4fe7-85a7-b2c92af36d9f",
+        "Content-Type": "application/json"
+    }
+});
+
+//Destructure the second item in teh callback of the .then()
+api.getAppInfo().then(([cards, userInfo]) => {
+    cards.forEach((item) => {
+        console.log(cards)
+        const cardEl = getCardElement(item);
+        cardsList.append(cardEl);
+    });
+    if (userInfo) {
+        profileNameEl.textContent = userInfo.name;
+        profileDescriptionEl.textContent = userInfo.about;
+        previewImageEl.src = userInfo.avatar;
+    } else {
+        console.error("User info is undefined or null");
+    }
+
+}).catch(console.error);
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -147,17 +173,20 @@ function closeModal(modal) {
     modal.removeEventListener("click", clickToClose);
 }
 
-function handleEditProfileSubmit(evt) {
+function handleEditProfileSubmit(evt, userInfo) {
     if (!editProfileNameInput.value.trim() || !editProfileDescriptionInput.value.trim()) {
         alert("Please fill in all fields");
         evt.preventDefault();
         return;
     };
     evt.preventDefault();
-    profileNameEl.textContent = editProfileNameInput.value;
-    profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-    closeModal(editProfileModal);
-
+    api.editUserInfo({ name: editProfileNameInput.value, about: editProfileDescriptionInput.value })
+        .then((data) => {
+            profileNameEl.textContent = data.name;
+            profileDescriptionEl.textContent = data.about;
+            closeModal(editProfileModal);
+        })
+        .catch(console.error);
 };
 
 function handleNewPostSubmit(evt) {
