@@ -1,4 +1,6 @@
-// I don't know what you mean by 4 spaces. Prettier keeps correcting my format when I save this way, on my screen it's showing 2 indent spaces and not 4 as the correction says. Even in the config file it states that it is using 2 spaces?
+import { enableValidation, settings, resetValidation, disableButton } from "../scripts/validation.js";
+import "../pages/index.css";
+
 
 const initialCards = [
     {
@@ -181,3 +183,5 @@ initialCards.forEach(function (item) {
     const postCardEl = getCardElement(item);
     cardsList.append(postCardEl);
 });
+
+enableValidation(settings);
