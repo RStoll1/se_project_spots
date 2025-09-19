@@ -51,7 +51,6 @@ api
   .getAppInfo()
   .then(([cards, userInfo]) => {
     cards.forEach((item) => {
-      console.log(cards);
       const cardEl = getCardElement(item);
       cardsList.append(cardEl);
     });
@@ -102,6 +101,7 @@ const avatarForm = avatarModal.querySelector(".modal__form");
 const avatarProfileInput = avatarModal.querySelector("#profile-avatar-input");
 const avatarCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
+const avatarImage = document.querySelector(".profile__avatar");
 
 const cardTemplate = document
   .querySelector("#card-template")
@@ -205,7 +205,7 @@ function closeModal(modal) {
   modal.removeEventListener("click", clickToClose);
 }
 
-function handleEditProfileSubmit(evt, userInfo) {
+function handleEditProfileSubmit(evt) {
   if (
     !editProfileNameInput.value.trim() ||
     !editProfileDescriptionInput.value.trim()
@@ -230,13 +230,18 @@ function handleEditProfileSubmit(evt, userInfo) {
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
-  console.log("API instance:", api);
-  console.log("editAvatarInfo exists?", typeof api.editAvatarInfo);
+
+  if (!avatarProfileInput.value.trim()) {
+    alert("Please fill in all fields");
+    return;
+  }
+
   api
     .editAvatarInfo(avatarProfileInput.value)
     .then((data) => {
-      previewImageEl.src = data.avatar;
+      avatarImage.src = data.avatar;
       closeModal(avatarModal);
+      avatarForm.reset();
     })
     .catch(console.error);
 }
