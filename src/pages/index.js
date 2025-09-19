@@ -96,8 +96,12 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
 
-const editAvatarBtn = document.querySelector(".profile__avatar-btn");
-const editAvatarModal = document.querySelector("#edit-avatar-modal");
+const avatarBtn = document.querySelector(".profile__avatar-btn");
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarForm = avatarModal.querySelector(".modal__form");
+const avatarProfileInput = avatarModal.querySelector("#profile-avatar-input");
+const avatarCloseBtn = avatarModal.querySelector(".modal__close-btn");
+const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 
 const cardTemplate = document
   .querySelector("#card-template")
@@ -164,9 +168,15 @@ newPostCloseBtn.addEventListener("click", function () {
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
-editAvatarBtn.addEventListener("click", function () {
-  openModal(editAvatarModal);
+avatarBtn.addEventListener("click", function () {
+  openModal(avatarModal);
 });
+
+avatarCloseBtn.addEventListener("click", function () {
+  closeModal(avatarModal);
+});
+
+avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 const escPressed = (evt) => {
   if (evt.key === "Escape") {
@@ -214,6 +224,19 @@ function handleEditProfileSubmit(evt, userInfo) {
       profileNameEl.textContent = data.name;
       profileDescriptionEl.textContent = data.about;
       closeModal(editProfileModal);
+    })
+    .catch(console.error);
+}
+
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+  console.log("API instance:", api);
+  console.log("editAvatarInfo exists?", typeof api.editAvatarInfo);
+  api
+    .editAvatarInfo(avatarProfileInput.value)
+    .then((data) => {
+      previewImageEl.src = data.avatar;
+      closeModal(avatarModal);
     })
     .catch(console.error);
 }
