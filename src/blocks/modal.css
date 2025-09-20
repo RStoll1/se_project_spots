@@ -128,11 +128,13 @@
   gap: 10px;
 }
 
+#delete-modal .modal__container {
+  max-width: none;
+  width: auto;
+}
+
 #delete-modal .modal__title {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  white-space: normal;
+  white-space: nowrap;
 }
 
 #delete-form .modal__submit-btn {
@@ -165,7 +167,6 @@
   border: none;
   cursor: pointer;
   z-index: 10;
-  color: #fff;
 }
 
 .modal__cancel-btn {
@@ -264,5 +265,24 @@
 
   .modal__caption {
     font-size: 16px;
+  }
+
+  #delete-modal .modal__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #delete-modal .modal__title {
+    white-space: wrap;
+  }
+
+  #delete-modal .modal__close-btn {
+    position: absolute;
+    top: -50px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
   }
 }

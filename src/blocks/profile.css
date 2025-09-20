@@ -128,8 +128,16 @@
   }
 
   .profile__avatar-btn {
+    justify-content: flex-end;
+    top: -10px;
+  }
+
+  .profile__avatar-btn .profile__pencil-icon {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+    padding: 4px;
+    justify-content: flex-end;
     visibility: visible;
-    background: transparent;
     border: none;
   }
 
