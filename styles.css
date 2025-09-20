@@ -725,6 +725,13 @@ template {
   box-sizing: border-box;
 }
 
+#delete-modal .modal__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px; /* space between buttons */
+}
+
 .modal__close-btn {
   background: transparent;
   position: absolute;
@@ -811,6 +818,17 @@ template {
   opacity: 50%;
 }
 
+.modal__cancel-btn {
+  margin: 0;
+  padding: 18px 32px;
+  background-color: #212121;
+  color: #fcf5e5;
+  border-radius: 8px;
+  width: 156px;
+  opacity: 100%;
+  border: none;
+}
+
 .modal__input:hover {
   cursor: pointer;
   border: 1px solid #212121;
@@ -875,6 +893,11 @@ template {
   }
 
   .modal__submit-btn {
+    width: 100%;
+    max-width: none;
+  }
+
+  .modal__cancel-btn {
     width: 100%;
     max-width: none;
   }
