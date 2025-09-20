@@ -35,13 +35,6 @@
   box-sizing: border-box;
 }
 
-#delete-modal .modal__form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10px; /* space between buttons */
-}
-
 .modal__close-btn {
   background: transparent;
   position: absolute;
@@ -128,6 +121,53 @@
   opacity: 50%;
 }
 
+#delete-modal .modal__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+#delete-modal .modal__title {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+}
+
+#delete-form .modal__submit-btn {
+  background-color: #ff6565;
+}
+
+#delete-form .modal__submit-btn:hover {
+  background-color: #ff3333;
+}
+
+#delete-form .modal__cancel-btn {
+  background-color: #fff;
+  border: 1px solid #212121;
+  color: #212121;
+}
+
+#delete-form .modal__cancel-btn:hover {
+  background-color: #212121;
+  cursor: pointer;
+  color: #fff;
+}
+
+#delete-modal .modal__close-btn {
+  position: absolute;
+  top: -10px;
+  right: -50px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  color: #fff;
+}
+
 .modal__cancel-btn {
   margin: 0;
   padding: 18px 32px;
@@ -149,7 +189,7 @@
   opacity: 40%;
 }
 
-.modal__submit-btn:hover {
+.modal__form:not(#delete-form) .modal__submit-btn:hover {
   cursor: pointer;
   opacity: 70%;
 }

@@ -12,9 +12,12 @@
   width: 100%;
   height: 100%;
   visibility: hidden;
-  background: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
+  border-radius: 8px;
   color: white;
+  padding-bottom: 12px;
+  gap: 8px;
 }
 
 .profile__avatar-container {
@@ -31,6 +34,10 @@
   width: 190px;
   border-radius: 8px;
   object-fit: cover;
+}
+
+.profile__avatar-btn {
+  margin-bottom: 12px;
 }
 
 .profile__avatar-btn::after {
