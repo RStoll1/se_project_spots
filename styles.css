@@ -403,9 +403,12 @@ template {
   width: 100%;
   height: 100%;
   visibility: hidden;
-  background: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
+  border-radius: 8px;
   color: white;
+  padding-bottom: 12px;
+  gap: 8px;
 }
 
 .profile__avatar-container {
@@ -422,6 +425,10 @@ template {
   width: 190px;
   border-radius: 8px;
   object-fit: cover;
+}
+
+.profile__avatar-btn {
+  margin-bottom: 12px;
 }
 
 .profile__avatar-btn::after {
@@ -512,8 +519,16 @@ template {
   }
 
   .profile__avatar-btn {
+    justify-content: flex-end;
+    top: -10px;
+  }
+
+  .profile__avatar-btn .profile__pencil-icon {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+    padding: 4px;
+    justify-content: flex-end;
     visibility: visible;
-    background: transparent;
     border: none;
   }
 
@@ -725,13 +740,6 @@ template {
   box-sizing: border-box;
 }
 
-#delete-modal .modal__form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10px; /* space between buttons */
-}
-
 .modal__close-btn {
   background: transparent;
   position: absolute;
@@ -818,6 +826,54 @@ template {
   opacity: 50%;
 }
 
+#delete-modal .modal__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+#delete-modal .modal__container {
+  max-width: none;
+  width: auto;
+}
+
+#delete-modal .modal__title {
+  white-space: nowrap;
+}
+
+#delete-form .modal__submit-btn {
+  background-color: #ff6565;
+}
+
+#delete-form .modal__submit-btn:hover {
+  background-color: #ff3333;
+}
+
+#delete-form .modal__cancel-btn {
+  background-color: #fff;
+  border: 1px solid #212121;
+  color: #212121;
+}
+
+#delete-form .modal__cancel-btn:hover {
+  background-color: #212121;
+  cursor: pointer;
+  color: #fff;
+}
+
+#delete-modal .modal__close-btn {
+  position: absolute;
+  top: -10px;
+  right: -50px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
 .modal__cancel-btn {
   margin: 0;
   padding: 18px 32px;
@@ -839,7 +895,7 @@ template {
   opacity: 40%;
 }
 
-.modal__submit-btn:hover {
+.modal__form:not(#delete-form) .modal__submit-btn:hover {
   cursor: pointer;
   opacity: 70%;
 }
@@ -914,6 +970,25 @@ template {
 
   .modal__caption {
     font-size: 16px;
+  }
+
+  #delete-modal .modal__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #delete-modal .modal__title {
+    white-space: wrap;
+  }
+
+  #delete-modal .modal__close-btn {
+    position: absolute;
+    top: -50px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
   }
 }
 
