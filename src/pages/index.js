@@ -57,7 +57,7 @@ api
     if (userInfo) {
       profileNameEl.textContent = userInfo.name;
       profileDescriptionEl.textContent = userInfo.about;
-      previewImageEl.src = userInfo.avatar;
+      avatarImage.src = userInfo.avatar;
     } else {
       console.error("User info is undefined or null");
     }
@@ -250,7 +250,7 @@ function handleDeleteSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(submitBtn, true, "Delete", "Deleting");
+      setButtonText(submitBtn, false, "Delete", "Deleting");
     });
 }
 
@@ -305,6 +305,7 @@ function handleAvatarSubmit(evt) {
     .catch(console.error)
     .finally(() => {
       setButtonText(submitBtn, false);
+      disableButton();
     });
 }
 
