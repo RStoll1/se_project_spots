@@ -276,6 +276,7 @@ function handleEditProfileSubmit(evt) {
     .then((data) => {
       profileNameEl.textContent = data.name;
       profileDescriptionEl.textContent = data.about;
+      disableButton();
       closeModal(editProfileModal);
     })
     .catch(console.error)
@@ -305,7 +306,7 @@ function handleAvatarSubmit(evt) {
     .catch(console.error)
     .finally(() => {
       setButtonText(submitBtn, false);
-      disableButton();
+      disableButton(avatarSubmitBtn, settings);
     });
 }
 
